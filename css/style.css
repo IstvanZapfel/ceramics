@@ -1,0 +1,524 @@
+/*nullstyle*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+nav,
+footer,
+header,
+aside,
+section {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  min-width: 320px;
+}
+
+body {
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  font-family: "Comfortaa", sans-serif;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: "Comfortaa", sans-serif;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*--------------------*/
+@font-face {
+  font-family: Comfortaa;
+  font-display: swap;
+  src: url("../fonts/Comfortaa-Bold.woff2") format("woff2"), url("../fonts/Comfortaa-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Comfortaa;
+  font-display: swap;
+  src: url("../fonts/Comfortaa-Light.woff2") format("woff2"), url("../fonts/Comfortaa-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: Comfortaa;
+  font-display: swap;
+  src: url("../fonts/Comfortaa-Medium.woff2") format("woff2"), url("../fonts/Comfortaa-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Comfortaa;
+  font-display: swap;
+  src: url("../fonts/Comfortaa-SemiBold.woff2") format("woff2"), url("../fonts/Comfortaa-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: Comfortaa;
+  font-display: swap;
+  src: url("../fonts/Comfortaa-Regular.woff2") format("woff2"), url("../fonts/Comfortaa-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+.wrapper {
+  min-height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease 0s;
+}
+
+.wrapper._loaded {
+  opacity: 1;
+}
+
+.wrapper._loaded .header {
+  transition: transform 0.8s ease 0.8s;
+  transform: translate3d(0px, 0px, 0px);
+  -webkit-transform: translate3d(0px, 0px, 0px);
+  -ms-transform: translate3d(0px, 0px, 0px);
+  -o-transform: translate3d(0px, 0px, 0px);
+}
+
+.wrapper._loaded .page__pagination {
+  transform: translate3d(0px, -50%, 0);
+  -webkit-transform: translate3d(0px, -50%, 0);
+  -ms-transform: translate3d(0px, -50%, 0);
+  -o-transform: translate3d(0px, -50%, 0);
+  opacity: 1;
+  visibility: visible;
+  transition: transform 0.6s ease 0.8s;
+}
+@media (max-width: 767px) {
+  .wrapper._loaded .page__pagination {
+    transform: translate3d(-50%, 0px, 0);
+    -webkit-transform: translate3d(-50%, 0px, 0);
+    -ms-transform: translate3d(-50%, 0px, 0);
+    -o-transform: translate3d(-50%, 0px, 0);
+  }
+}
+
+.wrapper._free .page__pagination {
+  transform: translate3d(50px, -50%, 0);
+  -webkit-transform: translate3d(50px, -50%, 0);
+  -ms-transform: translate3d(50px, -50%, 0);
+  -o-transform: translate3d(50px, -50%, 0);
+  opacity: 0;
+  transition: all 0.3s ease 0;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 50;
+  padding: 0px 20px;
+  transform: translate3d(0px, -100%, 0);
+  -webkit-transform: translate3d(0px, -100%, 0);
+  -ms-transform: translate3d(0px, -100%, 0);
+  -o-transform: translate3d(0px, -100%, 0);
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.menu {
+  position: relative;
+  display: flex;
+  min-height: 70px;
+  align-items: center;
+}
+.menu__name {
+  display: block;
+  min-width: 120px;
+  min-height: 45px;
+  position: absolute;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  -webkit-transform: translate3d(0, -50%, 0);
+  -ms-transform: translate3d(0, -50%, 0);
+  -o-transform: translate3d(0, -50%, 0);
+  right: 10px;
+  overflow: hidden;
+  color: #fff;
+  font-size: 20px;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+.menu__list {
+  display: flex;
+  align-items: center;
+}
+.menu__link {
+  color: #fff;
+  font-size: calc(
+			10px + 6 * ((100vw - 320px) / 1280)
+		);
+  transition: color 0.3s ease 0s;
+  margin: 0px 10px 0px 0px;
+}
+.menu__link._active {
+  color: rgb(153, 242, 21);
+}
+@media (max-width: 767px) {
+  .menu__icon {
+    z-index: 5;
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 18px;
+    cursor: pointer;
+  }
+  .menu__icon span, .menu__icon::before, .menu__icon::after {
+    left: 0;
+    position: absolute;
+    height: 10%;
+    transition: all 0.3s ease 0s;
+    background-color: #fff;
+  }
+  .menu__icon::before, .menu__icon::after {
+    content: "";
+  }
+  .menu__icon::before {
+    top: 0;
+    width: 100%;
+  }
+  .menu__icon::after {
+    bottom: 0;
+    width: 65%;
+  }
+  .menu__icon span {
+    width: 80%;
+    top: 50%;
+    transform: scale(1) translate(0px, -50%);
+  }
+  .menu__icon._active span {
+    transform: scale(0) translate(0px, -50%);
+  }
+  .menu__icon._active::before {
+    top: 50%;
+    transform: rotate(-45deg) translate(0px, -50%);
+  }
+  .menu__icon._active::after {
+    width: 100%;
+    bottom: 50%;
+    transform: rotate(45deg) translate(0px, 50%);
+  }
+  .menu__body {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.878);
+    padding: 70px 30px 30px 30px;
+    transition: left 0.3s ease 0s;
+    overflow: auto;
+  }
+  .menu__body._active {
+    left: 0;
+  }
+  .menu__list {
+    flex-direction: column;
+    align-items: start;
+  }
+  .menu__link {
+    font-size: 18px;
+    margin: 0px 0px 0px 0px;
+  }
+  .menu__list li:not(:last-child) {
+    margin: 0px 0px 20px 0px;
+  }
+}
+
+@media (max-width: 767px) {
+  .menu {
+    align-items: center;
+  }
+}
+.page {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  counter-reset: item;
+}
+
+.page__wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.page__screen {
+  position: relative;
+  padding-left: calc(
+			5px + 105 * ((100vw - 320px) / 1280)
+		);
+  padding-right: calc(
+			5px + 105 * ((100vw - 320px) / 1280)
+		);
+  padding-top: 75px;
+  padding-bottom: 65px;
+}
+.page__screen::before {
+  counter-increment: item;
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  z-index: 10;
+  font-size: calc(
+			30px + 10 * ((100vw - 320px) / 1280)
+		);
+  text-align: center;
+  color: #fff;
+}
+@media (min-width: 1000px) {
+  .page__screen::before {
+    top: 50%;
+    left: calc(
+			1px + 9 * ((100vw - 320px) / 1280)
+		);
+    transform: translate3d(0, -50%, 0);
+    -webkit-transform: translate3d(0, -50%, 0);
+    -ms-transform: translate3d(0, -50%, 0);
+    -o-transform: translate3d(0, -50%, 0);
+  }
+}
+@media (max-width: 1000px) {
+  .page__screen::before {
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    -webkit-transform: translate3d(-50%, 0, 0);
+    -ms-transform: translate3d(-50%, 0, 0);
+    -o-transform: translate3d(-50%, 0, 0);
+    bottom: 20px;
+  }
+}
+
+.page__pagination {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+}
+@media (min-width: 767px) {
+  .page__pagination {
+    flex-direction: column;
+    top: 50%;
+    right: 20px;
+    transform: translate3d(50px, -50%, 0);
+    -webkit-transform: translate3d(50px, -50%, 0);
+    -ms-transform: translate3d(50px, -50%, 0);
+    -o-transform: translate3d(50px, -50%, 0);
+  }
+}
+@media (max-width: 767px) {
+  .page__pagination {
+    flex-direction: row;
+    left: 50%;
+    bottom: 10px;
+    transform: translate3d(-50%, 50px, 0);
+    -webkit-transform: translate3d(-50%, 50px, 0);
+    -ms-transform: translate3d(-50%, 50px, 0);
+    -o-transform: translate3d(-50%, 50px, 0);
+  }
+}
+
+.page__bullet {
+  width: 7px;
+  height: 30px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease 0s;
+}
+@media (min-width: 767px) {
+  .page__bullet {
+    margin: 5px 0;
+  }
+}
+@media (max-width: 767px) {
+  .page__bullet {
+    width: 30px;
+    height: 7px;
+    margin-right: 5px;
+  }
+}
+
+.page__bullet_active {
+  background-color: #fff;
+}
+
+.page__scroll {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.page__drag-scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.screen {
+  flex: 1 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgb(53, 47, 42);
+}
+@media (max-width: 767px) {
+  .screen {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.screen__content {
+  flex: 0 1 100%;
+  position: relative;
+  z-index: 2;
+}
+.screen__content p {
+  font-size: calc(
+			12px + 10 * ((100vw - 320px) / 1280)
+		);
+  text-align: left;
+  line-height: 150%;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .screen__content {
+    flex: 0 1 auto;
+    padding-bottom: 30px;
+  }
+}
+
+.screen__title {
+  font-size: calc(
+			20px + 30 * ((100vw - 320px) / 1280)
+		);
+  color: #fff;
+  text-align: left;
+  margin: 0px 0px 20px 0px;
+  display: inline-block;
+}
+@media (max-width: 767px) {
+  .screen__title {
+    margin-top: 20px;
+  }
+}
+
+.screen__body {
+  flex: 0 1 100%;
+  position: relative;
+  width: 100%;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .screen__body {
+    flex: 0 1 100%;
+  }
+}
+@media (min-width: 767px) {
+  .screen__body {
+    padding: 0px 0px 0px 20px;
+  }
+}
+
+.screen__image {
+  position: relative;
+  padding: 0px 0px 65% 0px;
+}
+
+.screen__image img {
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
