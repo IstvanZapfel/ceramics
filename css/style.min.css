@@ -178,6 +178,14 @@ h6 {
   transition: all 0.3s ease 0;
 }
 
+.swiper-horizontal {
+  touch-action: pan-y;
+}
+
+.swiper-vertical {
+  touch-action: pan-x;
+}
+
 .header {
   position: fixed;
   width: 100%;
