@@ -133,6 +133,43 @@ h6 {
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: "icons";
+  font-display: swap;
+  src: url("../fonts/icons.woff") format("woff"), url("../fonts/icons.woff2#icons") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+[class^=_icon-]:before,
+[class*=" _icon-"]:before {
+  font-family: "icons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^=_icon-]:before,
+[class*=" _icon-"]:before {
+  display: block;
+}
+
+._icon-mail-2:before {
+  content: "\e901";
+}
+
+._icon-instagram:before {
+  content: "\e900";
+}
+
+._icon-phone:before {
+  content: "\e902";
+}
+
 .header {
   position: fixed;
   width: 100%;
@@ -581,13 +618,13 @@ body._lock::after {
   position: absolute;
   z-index: 10;
   font-size: calc(
-			18px + 4 * ((100vw - 320px) / 1280)
+			16px + 4 * ((100vw - 320px) / 1280)
 		);
   font-weight: 700;
   color: #ffffff;
   background-color: rgba(14, 14, 14, 0.4470588235);
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -616,45 +653,108 @@ body._lock::after {
   overflow: hidden;
 }
 
-.screen__body.body-about::before {
-  display: none;
+.about__screen {
+  flex: 1 0 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(53, 47, 42);
+  padding: 60px 0px 0px 0px;
 }
-
-.body-about {
+.about__body {
   position: relative;
-  flex: 0 1 auto;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  max-width: 1200px;
 }
-
-.about {
+.about__title {
+  color: #020202;
+  margin-top: 0px;
+  margin-bottom: 7px;
+}
+.about__text {
   position: absolute;
-  padding: 3px 3px 3px 3px;
+  padding: 5px;
   width: 50%;
+  height: 100%;
   top: 10px;
   left: 20px;
   z-index: 5;
-  background-color: rgba(64, 63, 63, 0.4588235294);
 }
-@media (min-width: 767px) {
-  .about {
-    top: 50px;
-    left: 50px;
+@media (max-width: 370px) {
+  .about__text {
+    top: 3px;
+    padding: 0;
   }
 }
-
-.ibg {
+.about__text p {
+  font-size: calc(
+			10px + 12 * ((100vw - 320px) / 1280)
+		);
+  text-align: left;
+  line-height: 120%;
+  color: #020202;
+}
+.about__text p:not(:last-child) {
+  margin-bottom: 3px;
+}
+.about__contacts {
+  position: absolute;
+  display: block;
+  width: 50%;
+  right: 10px;
+  top: 60px;
+  z-index: 5;
+}
+.about__contacts .about__title {
+  margin-bottom: 30px;
+}
+.about__contacts li {
+  font-size: calc(
+			14px + 8 * ((100vw - 320px) / 1280)
+		);
+  font-weight: 700;
+  display: flex;
+}
+.about__contacts li:not(:last-child) {
+  margin-bottom: 20px;
+}
+.about__contacts a {
+  flex: 0 1 auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #020202;
+}
+@media (any-hover: hover) and (pointer: fine) {
+  .about__contacts a:hover {
+    transition: all 0s ease 0s;
+    -webkit-transition: all 0s ease 0s;
+    -moz-transition: all 0s ease 0s;
+    -ms-transition: all 0s ease 0s;
+    -o-transition: all 0s ease 0s;
+    border-bottom: 3px solid rgb(111, 175, 16);
+  }
+}
+.about__image {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  padding: 0px 0px 75% 0px;
+  width: 100%;
+  padding: 0px 0px 77% 0px;
 }
 
-.ibg img {
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  visibility: hidden;
+._icon-phone:before, ._icon-instagram:before {
+  font-size: calc(
+			14px + 8 * ((100vw - 320px) / 1280)
+		);
+}
+
+._icon-mail-2:before {
+  font-size: calc(
+			16px + 8 * ((100vw - 320px) / 1280)
+		);
 }
