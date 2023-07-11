@@ -649,11 +649,38 @@ body._lock::after {
 }
 .about__body {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   top: 0;
   left: 0;
   overflow: hidden;
   max-width: 1200px;
+}
+.about__slogan {
+  flex: 0 1 auto;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  width: 40%;
+  font-weight: 700;
+  z-index: 5;
+  font-size: calc(
+			18px + 22 * ((100vw - 320px) / 1280)
+		);
+  color: #020202;
+}
+.about__slogan h2 {
+  text-transform: uppercase;
+  text-align: right;
+  line-height: 150%;
+}
+@media (max-width: 500px) {
+  .about__slogan {
+    left: 5px;
+    top: 260px;
+    width: 60%;
+  }
 }
 .about__title {
   color: #020202;
@@ -703,11 +730,11 @@ body._lock::after {
 }
 .about__contacts {
   position: absolute;
-  display: block;
+  display: inline-block;
   width: 55%;
-  right: 8px;
+  right: 1px;
   top: calc(
-			170px + 110 * ((100vw - 320px) / 1280)
+			190px + 100 * ((100vw - 320px) / 1280)
 		);
   z-index: 5;
 }
