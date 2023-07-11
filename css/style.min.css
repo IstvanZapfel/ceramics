@@ -660,7 +660,7 @@ body._lock::after {
 .about__slogan {
   flex: 0 1 auto;
   position: absolute;
-  top: 50px;
+  top: 40px;
   right: 20px;
   width: 40%;
   font-weight: 700;
@@ -678,7 +678,7 @@ body._lock::after {
 @media (max-width: 500px) {
   .about__slogan {
     left: 5px;
-    top: 260px;
+    top: 30px;
     width: 60%;
   }
 }
@@ -806,6 +806,7 @@ body._lock::after {
   background-repeat: no-repeat;
   position: relative;
   width: 100%;
+  height: 100%;
   padding: 0px 0px 77% 0px;
 }
 
