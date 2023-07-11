@@ -215,6 +215,7 @@ h6 {
   flex: 0 1 80%;
 }
 .menu__list {
+  flex: 1 1 auto;
   display: flex;
   align-items: center;
 }
